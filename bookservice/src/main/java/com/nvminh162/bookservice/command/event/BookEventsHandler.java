@@ -2,7 +2,9 @@ package com.nvminh162.bookservice.command.event;
 
 import com.nvminh162.bookservice.command.data.Book;
 import com.nvminh162.bookservice.command.data.BookRepository;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.axonframework.eventhandling.EventHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
@@ -11,8 +13,9 @@ import java.util.Optional;
 
 @Component // ứng dụng quét tới class này để lắng nghe (Scan class được đánh dấu)
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class BookEventsHandler {
-    private final BookRepository bookRepository;
+    BookRepository bookRepository;
 
     @EventHandler // tại đây mới thực sự xử lý event đó
     public void on(BookCreatedEvent event) {

@@ -4,6 +4,7 @@ import com.nvminh162.bookservice.command.command.CreateBookCommand;
 import com.nvminh162.bookservice.command.command.DeleteBookCommand;
 import com.nvminh162.bookservice.command.command.UpdateBookCommand;
 import com.nvminh162.bookservice.command.model.BookRequestModel;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.axonframework.commandhandling.gateway.CommandGateway;
@@ -14,8 +15,9 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/books")
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class BookCommandController {
-    private final CommandGateway commandGateway; // Phát đi những Event
+    CommandGateway commandGateway; // Phát đi những Event
 
     @PostMapping
     public String createBook(@RequestBody BookRequestModel model) {
