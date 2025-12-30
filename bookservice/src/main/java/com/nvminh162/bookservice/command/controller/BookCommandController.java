@@ -21,7 +21,7 @@ public class BookCommandController {
     @PostMapping
     public String createBook(@RequestBody BookRequestModel model) {
         CreateBookCommand command = new CreateBookCommand(UUID.randomUUID().toString(), model.getName(), model.getAuthor(), true);
-        return commandGateway.sendAndWait(command);
+        return commandGateway.sendAndWait(command); // aggregate identifier
     }
 
 

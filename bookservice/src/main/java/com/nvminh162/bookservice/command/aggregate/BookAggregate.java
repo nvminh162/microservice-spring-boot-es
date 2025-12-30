@@ -28,7 +28,7 @@ public class BookAggregate {
 
     // Tạo command handler => public 1 event
     @CommandHandler
-    public BookAggregate(CreateBookCommand command) { // => mục đích giúp cho app nhận biết Book Aggreate được init => nếu k có hàm này sẽ Exception
+    public BookAggregate(CreateBookCommand command) { // hàm khởi tạo có tham số => mục đích giúp cho app nhận biết Book Aggreate được init => nếu k có hàm này sẽ Exception
         BookCreatedEvent event = new BookCreatedEvent();
         BeanUtils.copyProperties(command, event); // Cách này thay vì gắn từng field => Copy tất cả dữ liệu thuộc tính của Object truyền vào tới Object đích
         AggregateLifecycle.apply(event); // đối tượng vòng đồi của Aggreate với method apply() để public event

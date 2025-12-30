@@ -8,6 +8,9 @@ mvn clean install -DskipTests
 # D:\Workspace\course\project\microservice-spring-boot-es\z_software\axonserver\AxonServer-2024.0.4>java -jar axonserver.jar
 java -jar axonserver.jar
 
+# H2 Database Console
+# http://localhost:9001/h2-console
+
 # Service Registry
 # bookservice
 # http://localhost:9001/
